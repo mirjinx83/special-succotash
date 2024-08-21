@@ -1,0 +1,61 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "domain": [
+          "geosite:category-ads-all",
+          "geosite:category-ads",
+          "geosite:category-porn",
+          "geosite:CATEGORY-SHOPPING-IR",
+          "geosite:ADJUST-ADS",
+          "geosite:YOUKU-ADS",
+          "geosite:YAHOO-ADS",
+          "geosite:GOOGLE-ADS",
+          "geosite:XIAOMI-ADS",
+          "geosite:WHATSAPP-ADS",
+          "geosite:UNITY-ADS",
+          "geosite:UMENG-ADS",
+          "geosite:UBERADS-ADS",
+          "geosite:TENCENT-ADS",
+          "geosite:TELEVISION-ADS",
+          "geosite:TAPPX-ADS",
+          "geosite:CATEGORY-PAYMENT-IR",
+          "geosite:CATEGORY-BANK-IR"
+        ],
+        "outboundTag": "block"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 4500,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "492f8b68-81ac-4760-83d7-b095706eea88"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "block"
+    }
+  ]
+}
